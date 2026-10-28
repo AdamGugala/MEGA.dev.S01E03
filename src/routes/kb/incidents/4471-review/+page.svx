@@ -1,0 +1,111 @@
+---
+layout: runbook
+title: '#4471 review · different causes behind similar date reports'
+owner: OpenCode agent (GPT-6.1 Sol)
+status: draft
+reviewed: '2026-10-28'
+signature: 'OpenCode / GPT-6.1 Sol / MEGA S01E03 / 2026-10-28'
+---
+
+<script>
+  import Callout from '#lib/kb/Callout.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import SnapshotEvidence from '#lib/kb/SnapshotEvidence.svelte';
+</script>
+
+## Finding
+
+The desk combined reports with similar symptoms, but the exported classification
+distinguishes a shared parser bug from a form-hint bug. The original
+[incident page](/kb/incidents/4471) says "one issue, one fix queued"; its own
+computed table does not support that conclusion.
+
+<Callout kind="warn">
+This is an agent-authored review of the export dated 4 October 2026, not a live
+view of the desk. The findings do not mean that either product bug is fixed,
+that new GitHub tickets already exist, or that the course has accepted this page.
+</Callout>
+
+## What the evidence counts
+
+<SnapshotEvidence ticket={4471} />
+
+<CauseTable ticket={4471} />
+
+The table shows the original ticket assignments in the snapshot. Its warning
+means that the minority cause needs its own ticket; it does not record any later
+GitHub publication.
+
+## Problem: shared parser assumes month first
+
+The shared parser interprets dates month first even for tenants whose locale
+writes the day first. This swaps day and month for ambiguous dates. The
+`parser` row above gives this problem's report count and affected-tenant count.
+
+Use the tenant configuration, not the browser's locale. Day-first tenants belong
+to this group except for submissions through the month-first-hint form described
+below. A fix to that form's hint alone would not repair the shared parser.
+
+## Problem: booking-v3's hint disagrees with its form reader
+
+`booking-v3` prints `MM/DD/YYYY`. People enter the date in that order, but the
+form reads it in the tenant's day-first order. The `hint` row gives this separate
+problem's report count. In this snapshot it affects form submissions for
+`alder.physio`, `copper.studio`, and `pale.harbour`.
+
+The distinction is the route through the product, not just the tenant:
+an app or email report from those same tenants can belong to `parser` instead.
+Changing the shared parser alone would leave the form-hint mismatch unresolved.
+
+The mechanisms and classification are defined in `src/lib/kb/causes.ts`, using
+the locale and form from `src/lib/data/tenants/` via `src/lib/kb/locales.ts`.
+The export contains no product implementation proving a deployed fix.
+
+## Triage: compare causes, not subject lines
+
+The accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject) and the
+[triage prose](/kb/triage/dedupe) use normalized subject matching. The supplied
+explorer actually compares causes. These are different rules:
+
+- Identical subjects can describe different causes: keep those reports apart.
+- Different subjects can describe the same cause: they can share a cause ticket.
+- An unknown tenant is not evidence of a shared cause. Investigate before merging;
+  matching subjects or two unclassified reports do not establish a duplicate.
+- Look up the tenant, its locale and booking form, and the report's channel before
+  assigning a cause. Intake tags are guesses, not verified classifications.
+
+<DedupeExplorer />
+
+Preserve decision 0001 as the accepted historical record. The proposed change is
+to replace subject-only triage with cause-based triage in a new decision record
+after approval, not silently rewrite the old decision or claim approval here.
+
+## What the timeline does and does not say
+
+<QueueTimeline ticket={4471} />
+
+Receiving a report and merging it into a ticket are separate events. A spike in
+merges is not proof that the same number of failures first occurred that week.
+The snapshot still contains incoming reports after the original incident page's
+review date. Marking the ticket "known" did not make the queue stop.
+
+The table's one-day-move note records a different reading of those reports, not
+an independently established timezone bug. The supplied tenant-based classifier
+files them under `parser`; retain the note without counting them again or
+inventing another proven cause.
+
+## Desk action and review boundary
+
+Track each demonstrated cause separately, with its own distinct-report count.
+Do not close the form-hint group merely because a parser fix is queued. Review
+new reports against their tenant and channel rather than copying this snapshot's
+numbers: this export does not collect reports arriving while we work.
+
+This draft provides evidence and a proposed triage correction. Product changes,
+ticket publication, a replacement decision's approval, and course acceptance
+remain separate actions.
+
+<RenderStamp {signature} />
