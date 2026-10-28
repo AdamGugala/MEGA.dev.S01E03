@@ -10,11 +10,11 @@
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/B38kRWGV.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/DRETgTfM.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/U3oLUVrV.js" rel="modulepreload">
-		<link href="/MEGA.dev.S01E03/_app/immutable/entry/app.Baj3J6KU.js" rel="modulepreload">
+		<link href="/MEGA.dev.S01E03/_app/immutable/entry/app.CK389o9O.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/nodes/0.DxK7WgvY.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
-		<link href="/MEGA.dev.S01E03/_app/immutable/nodes/6.DLhDPAvw.js" rel="modulepreload">
-		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/B9T817Hi.js" rel="modulepreload">
+		<link href="/MEGA.dev.S01E03/_app/immutable/nodes/6.B1VZLAEi.js" rel="modulepreload">
+		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/Dr38m9Ns.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/C4-xgdIL.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/B610VDBF.js" rel="modulepreload">
 		<link href="/MEGA.dev.S01E03/_app/immutable/chunks/B6tEIUFd.js" rel="modulepreload">
@@ -31,13 +31,14 @@
     <div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/MEGA.dev.S01E03/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">#4471 review · different causes behind similar date reports</h1> <p class="meta svelte-e2jw2j"><span>owner <b>OpenCode agent (GPT-6.1 Sol)</b></span> <span class="status draft svelte-e2jw2j">draft</span> <span class="svelte-e2jw2j">reviewed 2026-10-28 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><h2>Finding</h2> <p>The desk combined reports with similar symptoms, but the exported classification
 distinguishes a shared parser bug from a form-hint bug. The original <a href="/MEGA.dev.S01E03/kb/incidents/4471">incident page</a> says “one issue, one fix queued”; its own
 computed table does not support that conclusion.</p> <aside class="warn svelte-17bri61"><!---->This is an agent-authored review of the export dated 4 October 2026, not a live
-view of the desk. The findings do not mean that either product bug is fixed,
-that new GitHub tickets already exist, or that the course has accepted this page.<!----></aside><!----> <h2>What the evidence counts</h2> <p>The export has <strong>427</strong> rows for #4471, representing <strong>412</strong> distinct report IDs. <strong>15</strong> repeated rows are export overlap,
+view of the desk. The findings do not mean that either product bug is fixed
+or that the course has accepted this page. Current tracking is linked below;
+the embedded table retains the original snapshot's ticket assignments.<!----></aside><!----> <h2>What the evidence counts</h2> <p>The export has <strong>427</strong> rows for #4471, representing <strong>412</strong> distinct report IDs. <strong>15</strong> repeated rows are export overlap,
   not additional reports. All counts below use distinct IDs, keeping the last
   exported record for each ID.</p> <p>Intake's tag disagrees with the tenant-based classification on <strong>38</strong> reports. Neither the tag nor the
   reporter's browser locale is the source of truth for the cause.</p> <h3>Examples from the snapshot</h3> <p>These reports illustrate the groups; their wording is not the classification rule.</p> <!--[--><h4><code>parser</code> · R-41200</h4> <p><code>harbour.dental</code> · locale <code>en-GB</code> · <code>booking-v2</code> · channel <code>app</code></p> <blockquote>Our 7 April reminder went out on 4 July. Is this a joke. It is not April Fools where we are.</blockquote><h4><code>hint</code> · R-41230</h4> <p><code>copper.studio</code> · locale <code>es-ES</code> · <code>booking-v3</code> · channel <code>form</code></p> <blockquote>My client came on 1 June instead of 6 January. We sorted it out.</blockquote><!--]--><!----> <p class="sum svelte-12oyimm"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p> <table><thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th></th></tr></thead><tbody><!--[--><tr class="svelte-12oyimm"><td class="svelte-12oyimm"><code>parser</code></td><td class="svelte-12oyimm">379</td><td class="tags svelte-12oyimm">parser ×356 · hint ×23</td><td class="svelte-12oyimm">11</td><td class="svelte-12oyimm">2026-04-01 → 2026-10-04</td><td class="svelte-12oyimm">#4471</td></tr><tr class="svelte-12oyimm wrong"><td class="svelte-12oyimm"><code>hint</code></td><td class="svelte-12oyimm">33</td><td class="tags svelte-12oyimm">hint ×18 · parser ×15</td><td class="svelte-12oyimm">3</td><td class="svelte-12oyimm">2026-04-17 → 2026-09-22</td><td class="svelte-12oyimm">not this ticket — no ticket of its own</td></tr><!--]--></tbody></table> <!--[--><!--[0--><p class="note svelte-12oyimm">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p><!--]--><!--[-1--><!--]--><!--]--><!----> <p>The table shows the original ticket assignments in the snapshot. Its warning
-means that the minority cause needs its own ticket; it does not record any later
-GitHub publication.</p> <h2>Problem: shared parser assumes month first</h2> <p>The shared parser interprets dates month first even for tenants whose locale
+identifies the cause that had no separate ticket then. New tracking is now
+published separately:</p> <ul><li><a href="https://github.com/AdamGugala/MEGA.dev.S01E03/issues/1" rel="nofollow"><code>parser</code>: GitHub issue #1</a></li> <li><a href="https://github.com/AdamGugala/MEGA.dev.S01E03/issues/2" rel="nofollow"><code>hint</code>: GitHub issue #2</a></li></ul> <h2>Problem: shared parser assumes month first</h2> <p>The shared parser interprets dates month first even for tenants whose locale
 writes the day first. This swaps day and month for ambiguous dates. The <code>parser</code> row above gives this problem’s report count and affected-tenant count.</p> <p>Use the tenant configuration, not the browser’s locale. Day-first tenants belong
 to this group except for submissions through the month-first-hint form described
 below. A fix to that form’s hint alone would not repair the shared parser.</p> <h2>Problem: booking-v3’s hint disagrees with its form reader</h2> <p><code>booking-v3</code> prints <code>MM/DD/YYYY</code>. People enter the date in that order, but the
@@ -61,22 +62,21 @@ inventing another proven cause.</p> <h2>Desk action and review boundary</h2> <p>
 Do not close the form-hint group merely because a parser fix is queued. Review
 new reports against their tenant and channel rather than copying this snapshot’s
 numbers: this export does not collect reports arriving while we work.</p> <p>This draft provides evidence and a proposed triage correction. Product changes,
-ticket publication, a replacement decision’s approval, and course acceptance
-remain separate actions.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-7F22-B4X7</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages may be human- or agent-authored; see each page's owner. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+a replacement decision’s approval, and course acceptance remain separate actions.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-7F22-B4X7</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages may be human- or agent-authored; see each page's owner. Tables and charts are built from data at render time.</footer></div><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_fcdiep = {
+					__sveltekit_hwxh06 = {
 						base: "/MEGA.dev.S01E03",
-						version: "1793211330831",
+						version: "1793212329710",
 						assets: "/MEGA.dev.S01E03"
 					};
 
 					const element = document.currentScript.parentElement;
 
 					import("/MEGA.dev.S01E03/_app/immutable/entry/start.D_MgsP_s.js").then(async (kit) => {
-						kit.init(__sveltekit_fcdiep);
-						const app = await import("/MEGA.dev.S01E03/_app/immutable/entry/app.Baj3J6KU.js");
+						kit.init(__sveltekit_hwxh06);
+						const app = await import("/MEGA.dev.S01E03/_app/immutable/entry/app.CK389o9O.js");
 						kit.start(app, element, {
 							node_ids: [0, 6],
 							data: [null,null],

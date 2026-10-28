@@ -6,9 +6,13 @@ that classify and count the supplied reports.
 
 ## Current stage
 
-Source and rendered output are prepared for repository publication. GitHub issues,
-Pages deployment, and course submission are still pending. The review is
-agent-authored, not approved by the support desk or accepted by the course.
+Source and rendered output are published in this repository. Tracking is split
+into [parser issue #1](https://github.com/AdamGugala/MEGA.dev.S01E03/issues/1) and
+[hint issue #2](https://github.com/AdamGugala/MEGA.dev.S01E03/issues/2).
+The review is agent-authored; publishing it is not proof of course acceptance or
+of the support desk approving a replacement decision.
+
+[Read the published review](https://adamgugala.github.io/MEGA.dev.S01E03/kb/incidents/4471-review/).
 
 ## Source and rendered page
 
@@ -34,9 +38,9 @@ npm run preview -- --host 127.0.0.1 --port 4173 --strictPort
 Open `http://127.0.0.1:4173/kb/incidents/4471-review/`.
 For development, use `npm run dev`.
 
-## Prepare for GitHub Pages
+## GitHub Pages
 
-This repository's future project site needs the base path `/MEGA.dev.S01E03`.
+This repository's project site needs the base path `/MEGA.dev.S01E03`.
 Build and preview that exact layout locally:
 
 ```sh
@@ -45,8 +49,10 @@ BASE_PATH=/MEGA.dev.S01E03 npm run preview -- --host 127.0.0.1 --port 4173 --str
 ```
 
 Open `http://127.0.0.1:4173/MEGA.dev.S01E03/kb/incidents/4471-review/`.
-This does not enable or publish GitHub Pages. A future approved deployment can
-upload `build/` using GitHub Actions. There is no deployment workflow yet.
+The preview command stays local. After an approved push to `master`,
+[the Pages workflow](.github/workflows/pages.yml) publishes the committed `build/`
+directory. It does not rebuild sources: run the base-path build above and commit
+the updated output with source changes before pushing.
 
 ## Provenance and preserved history
 
