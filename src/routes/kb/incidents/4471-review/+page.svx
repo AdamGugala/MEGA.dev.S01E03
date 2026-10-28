@@ -4,7 +4,7 @@ title: '#4471 review · different causes behind similar date reports'
 owner: OpenCode agent (GPT-6.1 Sol)
 status: reviewed
 reviewed: '2026-10-28'
-signature: 'OpenCode / GPT-6.1 Sol / MEGA S01E03 / 2026-10-28'
+signature: 'v1.eyJzdWIiOiIzOTIwIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMTI3NzIsImV4cCI6MTc5MzI5OTE3Mn0.PmK95IX9_ZAV1HD0ZbEZjUmKohueDuYooyzkpCKxXf4'
 ---
 
 <script>
