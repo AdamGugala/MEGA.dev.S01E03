@@ -14,6 +14,12 @@ of the support desk approving a replacement decision.
 
 [Read the published review](https://adamgugala.github.io/MEGA.dev.S01E03/kb/incidents/4471-review/).
 
+The course accepted the two cause tickets and then released an engineering update
+for 2026-10-05: parser **fixed** (`fix(dates): parse dd/mm for eu locales`), hint
+**won't fix** (`booking-v3 form retired`). Issue #1 closes as completed; issue #2
+closes as not planned. The KB preserves the export's historical counts while
+recording these distinct outcomes. This update is not yet final course acceptance.
+
 ## Source and rendered page
 
 - New source: [`src/routes/kb/incidents/4471-review/+page.svx`](src/routes/kb/incidents/4471-review/+page.svx).

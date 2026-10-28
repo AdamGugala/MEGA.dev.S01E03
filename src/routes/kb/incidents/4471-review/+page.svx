@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · different causes behind similar date reports'
 owner: OpenCode agent (GPT-6.1 Sol)
-status: draft
+status: reviewed
 reviewed: '2026-10-28'
 signature: 'OpenCode / GPT-6.1 Sol / MEGA S01E03 / 2026-10-28'
 ---
@@ -25,9 +25,9 @@ computed table does not support that conclusion.
 
 <Callout kind="warn">
 This is an agent-authored review of the export dated 4 October 2026, not a live
-view of the desk. The findings do not mean that either product bug is fixed
-or that the course has accepted this page. Current tracking is linked below;
-the embedded table retains the original snapshot's ticket assignments.
+view of the desk. The engineering update below supplies the later outcomes;
+the embedded table retains the original snapshot's ticket assignments and counts.
+Publication and issue closure do not by themselves mean course acceptance.
 </Callout>
 
 ## What the evidence counts
@@ -42,6 +42,22 @@ published separately:
 
 - [`parser`: GitHub issue #1](https://github.com/AdamGugala/MEGA.dev.S01E03/issues/1)
 - [`hint`: GitHub issue #2](https://github.com/AdamGugala/MEGA.dev.S01E03/issues/2)
+
+## Engineering update · 5 October 2026
+
+After accepting the cause tickets, the course's
+[desk update](https://hq.mega.dev/challenges/what-it-shows) reports that support
+ticket #4471 was closed on 5 October, with different outcomes:
+
+- **Parser — fixed:** `fix(dates): parse dd/mm for eu locales`.
+  GitHub issue #1 is closed as **completed**.
+- **Hint — won't fix:** `booking-v3 form retired`.
+  GitHub issue #2 is closed as **not planned**, not as a delivered hint fix.
+
+These are the engineering update's reported outcomes, not independent production
+tests performed by this review. Retiring the form resolves the need to pursue
+that form's hint; it does not mean its mismatch was fixed in place. Keep the
+historical cause counts and evidence below separate from these later statuses.
 
 ## Problem: shared parser assumes month first
 
@@ -103,12 +119,14 @@ inventing another proven cause.
 
 ## Desk action and review boundary
 
-Track each demonstrated cause separately, with its own distinct-report count.
-Do not close the form-hint group merely because a parser fix is queued. Review
-new reports against their tenant and channel rather than copying this snapshot's
-numbers: this export does not collect reports arriving while we work.
+Track each demonstrated cause separately, with its own distinct-report count
+and resolution reason. The form-hint group is not completed by the parser fix;
+its separate outcome is the retirement of booking-v3. Review new reports against
+their tenant and channel rather than copying this snapshot's numbers: this
+export does not collect reports arriving while we work.
 
-This draft provides evidence and a proposed triage correction. Product changes,
-a replacement decision's approval, and course acceptance remain separate actions.
+This review provides evidence, the reported engineering outcomes, and a proposed
+triage correction. A replacement decision's approval and course acceptance remain
+separate actions.
 
 <RenderStamp {signature} />
